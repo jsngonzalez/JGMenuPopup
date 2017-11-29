@@ -25,7 +25,7 @@ class ViewController: UIViewController {
 
     @IBAction func mostrarOpciones(_ sender: Any) {
         
-        let options=["una","dos","tres","cuatro","cinco","seis","siete","ocho","nueve","diez","once","doce","trece","catorce","quince"]
+        let options=["una","dos","tres","cuatro","cinco"]
         
         
         JGMenuPopupViewController().openPopup(parent:self.navigationController!, title: "Sature brand", items:options, selected: "seis", callback: { value in
