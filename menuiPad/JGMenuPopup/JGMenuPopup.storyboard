@@ -21,9 +21,9 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IQR-aC-mp0">
                                 <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                                 <subviews>
-                                    <view alpha="0.80000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rgK-vM-GFS">
+                                    <view alpha="0.97999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rgK-vM-GFS">
                                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
-                                        <color key="backgroundColor" red="0.15294117647058825" green="0.1764705882352941" blue="0.25098039215686274" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.12156862745098039" green="0.14509803921568626" blue="0.2196078431372549" alpha="1" colorSpace="calibratedRGB"/>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cv8-aM-MLH">
                                         <rect key="frame" x="88" y="77" width="848" height="614"/>
@@ -47,7 +47,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
-                                        <color key="backgroundColor" red="0.80392156859999997" green="0.070588235289999995" blue="0.090196078430000007" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="dVo-Bg-1Qg" secondAttribute="trailing" constant="21" id="D4z-j8-wCc"/>
                                             <constraint firstAttribute="bottom" secondItem="dVo-Bg-1Qg" secondAttribute="bottom" constant="15" id="xdk-F7-YBN"/>
@@ -77,6 +77,7 @@
                         <viewLayoutGuide key="safeArea" id="WfL-EO-gOe"/>
                     </view>
                     <connections>
+                        <outlet property="lblTitulo" destination="3Mf-VK-Fxe" id="Jgz-YG-bm5"/>
                         <outlet property="viewContent" destination="IQR-aC-mp0" id="FHz-uF-fpq"/>
                         <outlet property="viewContentMenu" destination="cv8-aM-MLH" id="1U9-QQ-I1z"/>
                     </connections>
