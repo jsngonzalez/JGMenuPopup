@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="ipad9_7" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -13,7 +13,7 @@
         <!--Menu Popup View Controller-->
         <scene sceneID="MxY-wJ-RVZ">
             <objects>
-                <viewController storyboardIdentifier="JGMenuPopup" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Or4-UA-gLq" customClass="JGMenuPopupViewController" customModule="menuiPad" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="JGMenuPopup" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Or4-UA-gLq" customClass="JGMenuPopupViewController" customModule="agujas" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gcn-gc-4ce">
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -26,10 +26,21 @@
                                         <color key="backgroundColor" red="0.12156862745098039" green="0.14509803921568626" blue="0.2196078431372549" alpha="1" colorSpace="calibratedRGB"/>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cv8-aM-MLH">
-                                        <rect key="frame" x="88" y="77" width="848" height="614"/>
+                                        <rect key="frame" x="88" y="28" width="848" height="718"/>
                                         <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Este es el titulo Este es el titulo Este es el titulo Este es el titulo" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Mf-VK-Fxe">
+                                                <rect key="frame" x="201" y="18" width="446" height="94"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OLJ-4R-pjH">
+                                                <rect key="frame" x="-15" y="120" width="878" height="598"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            </scrollView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dVo-Bg-1Qg">
-                                                <rect key="frame" x="735" y="531" width="92" height="68"/>
+                                                <rect key="frame" x="737" y="642" width="92" height="68"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="92" id="Fe7-fw-ubU"/>
                                                     <constraint firstAttribute="height" constant="68" id="Jwv-fO-aNg"/>
@@ -39,18 +50,11 @@
                                                     <action selector="close:" destination="Or4-UA-gLq" eventType="touchUpInside" id="a13-uJ-dzP"/>
                                                 </connections>
                                             </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Este es el titulo Este es el titulo Este es el titulo Este es el titulo" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Mf-VK-Fxe">
-                                                <rect key="frame" x="201" y="43" width="446" height="94"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="dVo-Bg-1Qg" secondAttribute="trailing" constant="21" id="D4z-j8-wCc"/>
-                                            <constraint firstAttribute="bottom" secondItem="dVo-Bg-1Qg" secondAttribute="bottom" constant="15" id="xdk-F7-YBN"/>
+                                            <constraint firstAttribute="trailing" secondItem="dVo-Bg-1Qg" secondAttribute="trailing" constant="19" id="D4z-j8-wCc"/>
+                                            <constraint firstAttribute="bottom" secondItem="dVo-Bg-1Qg" secondAttribute="bottom" constant="8" id="xdk-F7-YBN"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -59,10 +63,10 @@
                                     <constraint firstItem="rgK-vM-GFS" firstAttribute="leading" secondItem="IQR-aC-mp0" secondAttribute="leading" id="1Du-mg-JD9"/>
                                     <constraint firstAttribute="trailing" secondItem="rgK-vM-GFS" secondAttribute="trailing" id="4xX-4U-Dzc"/>
                                     <constraint firstAttribute="bottom" secondItem="rgK-vM-GFS" secondAttribute="bottom" id="7eK-9G-7qV"/>
-                                    <constraint firstAttribute="bottom" secondItem="cv8-aM-MLH" secondAttribute="bottom" constant="77" id="Jj5-0j-dId"/>
+                                    <constraint firstAttribute="bottom" secondItem="cv8-aM-MLH" secondAttribute="bottom" constant="22" id="Jj5-0j-dId"/>
                                     <constraint firstItem="rgK-vM-GFS" firstAttribute="top" secondItem="IQR-aC-mp0" secondAttribute="top" id="K5n-Sj-hHc"/>
                                     <constraint firstItem="cv8-aM-MLH" firstAttribute="leading" secondItem="IQR-aC-mp0" secondAttribute="leading" constant="88" id="TCN-85-e1I"/>
-                                    <constraint firstItem="cv8-aM-MLH" firstAttribute="top" secondItem="IQR-aC-mp0" secondAttribute="top" constant="77" id="e6h-ZJ-7xf"/>
+                                    <constraint firstItem="cv8-aM-MLH" firstAttribute="top" secondItem="IQR-aC-mp0" secondAttribute="top" constant="28" id="e6h-ZJ-7xf"/>
                                     <constraint firstAttribute="trailing" secondItem="cv8-aM-MLH" secondAttribute="trailing" constant="88" id="o6G-r7-PK8"/>
                                 </constraints>
                             </view>
@@ -78,6 +82,7 @@
                     </view>
                     <connections>
                         <outlet property="lblTitulo" destination="3Mf-VK-Fxe" id="Jgz-YG-bm5"/>
+                        <outlet property="scrollView" destination="OLJ-4R-pjH" id="R2P-2P-zp8"/>
                         <outlet property="viewContent" destination="IQR-aC-mp0" id="FHz-uF-fpq"/>
                         <outlet property="viewContentMenu" destination="cv8-aM-MLH" id="1U9-QQ-I1z"/>
                     </connections>

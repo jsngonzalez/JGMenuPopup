@@ -19,6 +19,7 @@ class JGMenuPopupViewController: UIViewController,UIViewControllerTransitioningD
     @IBOutlet var viewContent: UIView!
     @IBOutlet var viewContentMenu: UIView!
     @IBOutlet var lblTitulo: UILabel!
+    @IBOutlet var scrollView: UIScrollView!
     
     public func openPopup(parent:UINavigationController,title:String,items:[String],selected:String,callback:@escaping (String) -> Void){
         
@@ -72,64 +73,68 @@ class JGMenuPopupViewController: UIViewController,UIViewControllerTransitioningD
         
         let heigthView=361
         let widthView=240
-        let yView=177
+        let yView=0
         
-        if itemsPopup.count <= 7 {
+        
+        let halfView=Int(viewContentMenu.frame.size.width/2)
+        
+        let xView1=(Int(halfView/2) - Int(widthView/2))
+        let xView2=(Int(viewContentMenu.frame.size.width/2) - Int(widthView/2))
+        let xView3=(halfView + Int(widthView/2))
+        
+        let xContainers = [xView1,xView2,xView3]
+        
+        let numItems=Int(itemsPopup.count/3)
+        //print("numero de items por contenedor: \(numItems)")
+        
+        
+        //print("Numero de items: \(itemsPopup.count)")
+        for index in 0...2 {
+            //print("se pinta el contenedor: \(index)")
             
-            let xView=(Int(viewContentMenu.frame.size.width/2) - Int(widthView/2))
+            let inicio = (index*numItems)
+            var fin = ((index*numItems)+numItems)-1
             
-            setButtonsToView(frame: CGRect(x: xView, y: yView, width: widthView, height: heigthView), items: itemsPopup);
-        }else if itemsPopup.count > 7  &&  itemsPopup.count <= 12 {
-            
-            let halfView=Int(viewContentMenu.frame.size.width/2)
-            
-            let xView1=(Int(halfView/2) - Int(widthView/2))
-            let xView2=(halfView + Int(widthView/2))
-            
-            var array1:[String]=[]
-            for index in 0...6 {
-                array1.append(itemsPopup[index])
+            if index == 2{
+                fin=itemsPopup.count-1
             }
             
-            setButtonsToView(frame: CGRect(x: xView1, y: yView, width: widthView, height: heigthView), items: array1);
-            
-            var array2:[String]=[]
-            for index in 7...(itemsPopup.count-1) {
-                array2.append(itemsPopup[index])
-            }
-            setButtonsToView(frame: CGRect(x: xView2, y: yView, width: widthView, height: heigthView), items: array2);
-            
-        }else{//mas de 12
-            
-            let halfView=Int(viewContentMenu.frame.size.width/2)
-            
-            let xView1=(Int(halfView/2) - Int(widthView/2))
-            let xView2=(Int(viewContentMenu.frame.size.width/2) - Int(widthView/2))
-            let xView3=(halfView + Int(widthView/2))
-            
-            var array1:[String]=[]
-            for index in 0...6 {
-                array1.append(itemsPopup[index])
+            var array:[String]=[]
+            for i in inicio...fin {
+                array.append(itemsPopup[i])
             }
             
-            setButtonsToView(frame: CGRect(x: xView1, y: yView, width: widthView, height: heigthView), items: array1);
+            setButtonsToView(frame: CGRect(x: xContainers[index], y: yView, width: widthView, height: heigthView), items: array);
             
-            var array2:[String]=[]
-            for index in 7...13 {
-                array2.append(itemsPopup[index])
-            }
-            setButtonsToView(frame: CGRect(x: xView2, y: yView, width: widthView, height: heigthView), items: array2);
-            
-            
-            var array3:[String]=[]
-            for index in 14...(itemsPopup.count-1) {
-                array3.append(itemsPopup[index])
-            }
-            setButtonsToView(frame: CGRect(x: xView3, y: yView, width: widthView, height: heigthView), items: array3);
+            print("se pintan los items: \(array)")
         }
         
+        var maxY=0
+        let allLabels : [UIButton] = getSubviewsOf(view: scrollView)
+        for item in allLabels {
+            if Int(item.frame.origin.y) > maxY {
+                maxY=Int(item.frame.origin.y)
+            }
+        }
+        
+        scrollView.contentSize = CGSize(width: scrollView.frame.size.width, height:CGFloat(maxY+100))
         
     }
+    
+    private func getSubviewsOf<T : UIView>(view:UIView) -> [T] {
+        var subviews = [T]()
+        
+        for subview in view.subviews {
+            subviews += getSubviewsOf(view: subview) as [T]
+            
+            if let subview = subview as? T {
+                subviews.append(subview)
+            }
+        }
+        
+        return subviews
+    }
+    
     
     func setButtonsToView(frame:CGRect,items:[String]) {
         let view=UIView(frame: frame)
@@ -139,11 +144,12 @@ class JGMenuPopupViewController: UIViewController,UIViewControllerTransitioningD
         let xBtn=(Int(view.frame.size.width/2) - Int(widthBtn/2))
         
         for (index, item)  in items.enumerated() {
-            print("pintando:\(item)")
+            //print("pintando:\(item)")
             let btn=UIButton(frame: CGRect(x: xBtn, y: ((index)*heigthBtn)+(index*padding), width: widthBtn, height: heigthBtn))
             btn.setTitle(item, for: .normal)
             btn.titleLabel?.textColor = .white
             btn.backgroundColor = .clear
+            btn.titleLabel?.lineBreakMode = .byTruncatingTail;
             
             if selectedPopup==item {
                 btn.titleLabel?.font=UIFont.boldSystemFont(ofSize: 17)
@@ -159,7 +165,7 @@ class JGMenuPopupViewController: UIViewController,UIViewControllerTransitioningD
             view.addSubview(btn)
         }
         
-        viewContentMenu.addSubview(view)
+        scrollView.addSubview(view)
         
     }
     
